@@ -10,9 +10,31 @@
       "Base",
     ],
   },
-  "files": [
-    { "kind": "folder", "path": "Look4Sat", "target-membership": [ "Look4Sat" ] },
+  "packages": [
     {
+      "kind": "remote",
+      "repository": "https://github.com/gavineadie/SatelliteKit",
+      "version": {
+        "up-to-next-major-version": "2.1.2",
+      },
+    },
+  ],
+  "files": [
+    {
+      "kind": "folder",
+      "path": "Look4Sat",
+      "target-membership": [
+        "Look4Sat",
+      ],
+      "membership-exceptions": [
+        {
+          "target": "Look4Sat",
+          "exclusions": [
+            "Info.plist",
+          ],
+        },
+      ],
+    }, {
       "kind": "group",
       "name": "Products",
       "children": [
@@ -31,6 +53,13 @@
         "frameworks",
         "resources",
       ],
+      "package-product-members": [
+        {
+          "package": "SatelliteKit",
+          "product-name": "SatelliteKit",
+          "build-phase": { "build-phase": "frameworks" },
+        },
+      ],
       "build-settings": {
         "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
         "ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME": "AccentColor",
@@ -39,6 +68,10 @@
         "DEVELOPMENT_TEAM": "8V6429PCV7",
         "ENABLE_PREVIEWS": "YES",
         "GENERATE_INFOPLIST_FILE": "YES",
+        "INFOPLIST_FILE": "Look4Sat/Info.plist",
+        "INFOPLIST_KEY_CFBundleDisplayName": "Orbity",
+        "INFOPLIST_KEY_LSApplicationCategoryType": "public.app-category.education",
+        "INFOPLIST_KEY_NSLocationWhenInUseUsageDescription": "Used to predict satellite passes over your location",
         "INFOPLIST_KEY_UIApplicationSceneManifest_Generation": "YES",
         "INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents": "YES",
         "INFOPLIST_KEY_UILaunchScreen_Generation": "YES",
